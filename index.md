@@ -1,10 +1,15 @@
 ---
 layout: default
-title: Welcome to my blog!
+title: Welcome to Zhanxiong's blog!
 ---
 
-# Mathematics
+Welcome to my website! Here are my latest blog posts:
 
-# Poetry
-
-# Coding
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+    </li>
+  {% endfor %}
+</ul>
