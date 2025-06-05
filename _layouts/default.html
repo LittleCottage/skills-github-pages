@@ -2,12 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <title>{{ site.title }} | {{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Use GitHub Pages theme CSS if available -->
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-
   {% include mathjax.html %}
 
   <style>
@@ -21,8 +18,19 @@
       color: #222;
     }
 
-    h1, h2, h3 {
-      line-height: 1.25;
+    header {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.2em;
+    }
+
+    .post-meta {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 2em;
     }
 
     pre, code {
@@ -32,14 +40,22 @@
       font-family: Consolas, monospace;
     }
 
-    math, mjx-container {
+    mjx-container {
       font-size: 110%;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>{{ page.title }}</h1>
+    <header>
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        {{ page.date | date: "%B %-d, %Y" }}
+        {% if page.author %} • by {{ page.author }}{% endif %}
+        {% if page.tags %} • tags: {{ page.tags | join: ', ' }}{% endif %}
+      </div>
+    </header>
+
     {{ content }}
   </main>
 </body>
