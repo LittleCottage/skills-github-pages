@@ -1,5 +1,7 @@
+title: My Blog
+url: "https://LittleCottage.github.io"
+baseurl: "/skills-github-pages"
 theme: minima
-title: LittleCottage's personal blog
-description: This is where I share cool stuff about my life
-author: LittleCottage
 markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
